@@ -1,12 +1,12 @@
 import sys
 # from Calcul import *
-from KG_gui import *
+from KSD-gui import *
 from PyQt5.QtWidgets import QMainWindow, QDialog, QApplication, QFileDialog
 from pyautocad import Autocad, APoint, aDouble
 import math
 
 
-class MainWindow(QtWidgets.QDialog):
+class MainWindow(QMainWindow.QDialog):
     def __init__(self, parent=None):
         QtWidgets.QWidget.__init__(self, parent)
         self.ui = Ui_Dialog()
