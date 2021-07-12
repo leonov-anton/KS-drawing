@@ -1,6 +1,6 @@
 import sys
 # from Calcul import *
-from KS_gui import *
+from KSD_gui import *
 from PyQt5.QtWidgets import QMainWindow, QDialog, QApplication, QFileDialog
 from pyautocad import Autocad, APoint, aDouble
 import math

@@ -12,8 +12,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>719</width>
-    <height>366</height>
+    <width>468</width>
+    <height>348</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,21 +26,33 @@
    <widget class="QCheckBox" name="wed_draw">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>300</y>
+      <x>330</x>
+      <y>210</y>
       <width>81</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="tabletTracking">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Разметка</string>
+    </property>
+    <property name="checkable">
+     <bool>true</bool>
+    </property>
+    <property name="checked">
+     <bool>true</bool>
+    </property>
+    <property name="tristate">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="drawing_btn">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>300</y>
+      <x>360</x>
+      <y>270</y>
       <width>75</width>
       <height>25</height>
      </rect>
@@ -52,10 +64,10 @@
    <widget class="QFrame" name="RZ">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>30</y>
-      <width>140</width>
-      <height>240</height>
+      <x>160</x>
+      <y>10</y>
+      <width>160</width>
+      <height>291</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -71,7 +83,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>45</y>
        <width>82</width>
        <height>17</height>
       </rect>
@@ -84,7 +96,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>50</y>
+       <y>65</y>
        <width>82</width>
        <height>17</height>
       </rect>
@@ -97,7 +109,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>70</y>
+       <y>85</y>
        <width>82</width>
        <height>17</height>
       </rect>
@@ -110,20 +122,20 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>5</y>
+       <y>25</y>
        <width>111</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Тип кривой МТЗ т-ра:</string>
+      <string>Тип кривой МТЗ:</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="Imtz_edit">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>120</y>
+       <x>70</x>
+       <y>45</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -132,8 +144,8 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>120</y>
+       <x>130</x>
+       <y>45</y>
        <width>91</width>
        <height>16</height>
       </rect>
@@ -145,8 +157,8 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>70</x>
-       <y>150</y>
+       <x>130</x>
+       <y>70</y>
        <width>91</width>
        <height>16</height>
       </rect>
@@ -158,8 +170,8 @@
     <widget class="QLineEdit" name="TMS_edit">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>150</y>
+       <x>70</x>
+       <y>70</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -169,7 +181,7 @@
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>180</y>
+       <y>170</y>
        <width>91</width>
        <height>16</height>
       </rect>
@@ -182,7 +194,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>210</y>
+       <y>195</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -192,7 +204,7 @@
      <property name="geometry">
       <rect>
        <x>70</x>
-       <y>210</y>
+       <y>195</y>
        <width>91</width>
        <height>16</height>
       </rect>
@@ -205,7 +217,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>180</y>
+       <y>170</y>
        <width>51</width>
        <height>20</height>
       </rect>
@@ -215,7 +227,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>90</y>
+       <y>105</y>
        <width>82</width>
        <height>17</height>
       </rect>
@@ -224,14 +236,102 @@
       <string>IEC</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Парамерты ТО</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>-5</y>
+       <width>131</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Парамерты цифровой РЗА:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>145</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>с выдержкой времени:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_17">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>225</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Парамерты ТО</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_18">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>240</y>
+       <width>121</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>без выдержки времени:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="I0to_edit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>265</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_19">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>265</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>I0&gt;&gt;</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>30</y>
-      <width>140</width>
-      <height>261</height>
+      <y>10</y>
+      <width>131</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -244,7 +344,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>90</y>
+       <y>110</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -257,7 +357,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>110</y>
+       <y>130</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -269,8 +369,8 @@
     <widget class="QCheckBox" name="ppn_400">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>130</y>
+       <x>70</x>
+       <y>30</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -282,8 +382,8 @@
     <widget class="QCheckBox" name="ppn_500">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>150</y>
+       <x>70</x>
+       <y>50</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -295,8 +395,8 @@
     <widget class="QCheckBox" name="ppn_630">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>170</y>
+       <x>70</x>
+       <y>70</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -308,8 +408,8 @@
     <widget class="QCheckBox" name="ppn_800">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>190</y>
+       <x>70</x>
+       <y>90</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -321,8 +421,8 @@
     <widget class="QCheckBox" name="ppn_1000">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>210</y>
+       <x>70</x>
+       <y>110</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -341,7 +441,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Iном ППН 0,4 кВ:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ППН 0,4 кВ:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="textFormat">
       <enum>Qt::AutoText</enum>
@@ -354,7 +454,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>70</y>
+       <y>90</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -367,7 +467,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
+       <y>50</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -380,7 +480,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>50</y>
+       <y>70</y>
        <width>70</width>
        <height>17</height>
       </rect>
@@ -392,14 +492,335 @@
     <widget class="QCheckBox" name="ppn_1250">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>230</y>
+       <x>70</x>
+       <y>130</y>
        <width>70</width>
        <height>17</height>
       </rect>
      </property>
      <property name="text">
       <string>1250 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="ppn_100">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>100 A</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>131</width>
+      <height>131</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ПКН:</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_10">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>10 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_16">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>16 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_20">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>20 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_31_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>90</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>31.5 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_40">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>30</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>40 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_50">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>50</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>50 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_80">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>70</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>80 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_100">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>90</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>100 A</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="pkt_160">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>110</y>
+       <width>70</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>160 A</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>10</y>
+      <width>121</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <widget class="QLabel" name="label_11">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>5</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>РТВ-I:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="I1_edit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_12">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>60</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>T</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="T1_edit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_13">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>30</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>I</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_4">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>110</y>
+      <width>121</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <widget class="QLabel" name="label_14">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>РТВ-IV:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_15">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>60</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>T</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="T4_edit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_16">
+     <property name="geometry">
+      <rect>
+       <x>70</x>
+       <y>30</y>
+       <width>91</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>I</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="I4_edit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -409,10 +830,16 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>719</width>
+     <width>468</width>
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menufile">
+    <property name="title">
+     <string>About</string>
+    </property>
+   </widget>
+   <addaction name="menufile"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
