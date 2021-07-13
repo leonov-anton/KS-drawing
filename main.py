@@ -18,9 +18,10 @@ class MainWindow(QMainWindow):
 
         self.ui.drawing_btn.clicked.connect(self.web_A3)
         self.ui.drawing_btn.clicked.connect(self.IEC)
-        self.ui.drawing_btn.clicked.connect(self.fuse_04)
+        self.ui.drawing_btn.clicked.connect(self.fuse_LV)
         self.ui.drawing_btn.clicked.connect(self.RTV1)
         self.ui.drawing_btn.clicked.connect(self.RTV4)
+        self.ui.drawing_btn.clicked.connect(self.fuse_MV)
 
         self.ui.IEC_A.toggled.connect(self.IEC_A)
         self.ui.IEC_B.toggled.connect(self.IEC_B)
@@ -217,7 +218,7 @@ class MainWindow(QMainWindow):
         else:
             pass
 
-    def fuse_10(self):
+    def fuse_MV(self):
         a = (0 - 360) / (math.log(1) - math.log(24000))
         b = 360 - a * math.log(24000)
         c = (0 - 180) / (math.log(0.01) - math.log(10000))
@@ -325,7 +326,7 @@ class MainWindow(QMainWindow):
         fuse_f.color = 210
         fuse_f.Lineweight = 100
         
-    def fuse_04(self):
+    def fuse_LV(self):
         a = (0 - 360) / (math.log(1) - math.log(24000))
         b = 360 - a * math.log(24000)
         c = (0 - 180) / (math.log(0.01) - math.log(10000))
