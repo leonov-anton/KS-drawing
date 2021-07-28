@@ -203,11 +203,12 @@ class MainWindow(QMainWindow):
                 c = (0 - 180) / (math.log(0.01) - math.log(10000))
                 d = 180 - c * math.log(10000)
                 for I in Ir:
-                    It = Imtz * I
-                    IEC.append(It * 25 * 0.015)
-                    Tt = TMS * self.K / ((I ** self.alpha) - 1)
-                    IEC.append(c * math.log(Tt) + d)
-                    IEC.append(0)
+                    if I <= 960//Imtz:
+                        It = Imtz * I
+                        IEC.append(It * 25 * 0.015)
+                        Tt = TMS * self.K / ((I ** self.alpha) - 1)
+                        IEC.append(c * math.log(Tt) + d)
+                        IEC.append(0)
 
                 rza_mtz = acad.model.AddSpline(IEC, startTan, endTan)
                 rza_mtz.color = 94
