@@ -144,75 +144,143 @@ class MainWindow(QMainWindow):
 
     def IEC(self):
         # TODO отсечку без выдержки времени
-        if self.K and self.alpha and self.ui.Imtz_edit.text() and self.ui.TMS_edit.text():
+        if self.K and self.alpha and self.ui.Imtz_edit.text() and self.ui.TMS_edit.text() and self.ui.Ito_edit.text() and self.ui.Tto_edit.text() and self.I0to_edit.text():
             Imtz = float(self.ui.Imtz_edit.text().replace(',', '.'))
             TMS = float(self.ui.TMS_edit.text().replace(',', '.'))
-            try:
-                Ito = float(self.ui.Ito_edit.text().replace(',', '.'))
-                Tto = float(self.ui.Tto_edit.text().replace(',', '.'))
+            Ito = float(self.ui.Ito_edit.text().replace(',', '.'))
+            Tto = float(self.ui.Tto_edit.text().replace(',', '.'))
 
-                a = (0 - 360) / (math.log(1) - math.log(24000))
-                b = 360 - a * math.log(24000)
-                c = (0 - 180) / (math.log(0.01) - math.log(10000))
-                d = 180 - c * math.log(10000)
+            a = (0 - 360) / (math.log(1) - math.log(24000))
+            b = 360 - a * math.log(24000)
+            c = (0 - 180) / (math.log(0.01) - math.log(10000))
+            d = 180 - c * math.log(10000)
 
-                Ir = [((TMS * self.K/10000)+1) ** (1/self.alpha), 1.01, 1.05, 1.1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5,
-                      Ito / Imtz]
-                IEC = aDouble()
-                startTan = aDouble(0, 0, 0)
-                endTan = aDouble(0, 0, 0)
-                for I in Ir:
-                    if I <= Ito / Imtz:
-                        It = Imtz * I
-                        IEC.append(It * 25 * 0.015)
-                        Tt = TMS * self.K / ((I ** self.alpha) - 1)
-                        IEC.append(c * math.log(Tt) + d)
-                        IEC.append(0)
+            # защита от перегрузки
+            Ir = [((TMS * self.K/10000)+1) ** (1/self.alpha), 1.01, 1.05, 1.1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, Ito / Imtz]
+            IEC = aDouble()
+            startTan = aDouble(0, 0, 0)
+            endTan = aDouble(0, 0, 0)
+            for I in Ir:
+                if I <= Ito / Imtz:
+                It = Imtz * I
+                IEC.append(It * 25 * 0.015)
+                Tt = TMS * self.K / ((I ** self.alpha) - 1)
+                IEC.append(c * math.log(Tt) + d)
+                IEC.append(0)
 
-                TO = aDouble()
+            # токовая отсечка
+            TO = aDouble()
+            
+            TO.append(Ito * 25 * 0.015)
+            Tto0 = TMS * self.K / (((Ito / Imtz) ** self.alpha) - 1)
+            TO.append(c * math.log(Tto0) + d)
+            TO.append(0)
+            
+            TO.append(Ito * 25 * 0.015)
+            TO.append(c * math.log(Tto) + d)
+            TO.append(0)
+            
+            TO.append(I0to * 25 * 0.015)
+            TO.append(c * math.log(Tto) + d)
+            TO.append(0)
+            
+            # отсечка без выдержки
+            TO_0 = aDouble()
+            
+            TO_0.append(I0to * 25 * 0.015)
+            TO_0.append(c * math.log(Tto) + d)
+            TO_0.append(0)
+            
+            TO_0.append(I0to * 25 * 0.015)
+            TO_0.append(c * math.log(0.02) + d)
+            TO_0.append(0)
+            
+            TO_0.append(a * math.log(24000) + b)
+            TO_0.append(c * math.log(0.02) + d)
+            TO_0.append(0)
 
-                TO.append(Ito * 25 * 0.015)
-                Tto0 = TMS * self.K / (((Ito / Imtz) ** self.alpha) - 1)
-                TO.append(c * math.log(Tto0) + d)
-                TO.append(0)
+            # отрисовка
+            rza_mtz = acad.model.AddSpline(IEC, startTan, endTan)
+            rza_mtz.color = 94
+            rza_mtz.Lineweight = 100
 
-                TO.append(Ito * 25 * 0.015)
-                TO.append(c * math.log(Tto) + d)
-                TO.append(0)
+            rza_to = acad.model.AddPolyLine(TO)
+            rza_to.color = 94
+            rza_to.Lineweight = 100
+            
+            rza_to_0 = acad.model.AddPolyLine(TO_0)
+            rza_to.color = 94
+            rza_to.Lineweight = 100
+            
+        elif self.K and self.alpha and self.ui.Imtz_edit.text() and self.ui.TMS_edit.text() and self.ui.Ito_edit.text() and self.ui.Tto_edit.text() and not self.I0to_edit.text():
+            Imtz = float(self.ui.Imtz_edit.text().replace(',', '.'))
+            TMS = float(self.ui.TMS_edit.text().replace(',', '.'))
+            Ito = float(self.ui.Ito_edit.text().replace(',', '.'))
+            Tto = float(self.ui.Tto_edit.text().replace(',', '.'))
 
-                TO.append(a * math.log(24000) + b)
-                TO.append(c * math.log(Tto) + d)
-                TO.append(0)
+            a = (0 - 360) / (math.log(1) - math.log(24000))
+            b = 360 - a * math.log(24000)
+            c = (0 - 180) / (math.log(0.01) - math.log(10000))
+            d = 180 - c * math.log(10000)
 
-                rza_mtz = acad.model.AddSpline(IEC, startTan, endTan)
-                rza_mtz.color = 94
-                rza_mtz.Lineweight = 100
+            # защита от перегрузки
+            Ir = [((TMS * self.K/10000)+1) ** (1/self.alpha), 1.01, 1.05, 1.1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, Ito / Imtz]
+            IEC = aDouble()
+            startTan = aDouble(0, 0, 0)
+            endTan = aDouble(0, 0, 0)
+            for I in Ir:
+                if I <= Ito / Imtz:
+                It = Imtz * I
+                IEC.append(It * 25 * 0.015)
+                Tt = TMS * self.K / ((I ** self.alpha) - 1)
+                IEC.append(c * math.log(Tt) + d)
+                IEC.append(0)
 
-                rza_to = acad.model.AddPolyLine(TO)
-                rza_to.color = 94
-                rza_to.Lineweight = 100
+            # токовая отсечка
+            TO = aDouble()
+            
+            TO.append(Ito * 25 * 0.015)
+            Tto0 = TMS * self.K / (((Ito / Imtz) ** self.alpha) - 1)
+            TO.append(c * math.log(Tto0) + d)
+            TO.append(0)
+            
+            TO.append(Ito * 25 * 0.015)
+            TO.append(c * math.log(Tto) + d)
+            TO.append(0)
+            
+            TO.append(a * math.log(24000) + b)
+            TO.append(c * math.log(Tto) + d)
+            TO.append(0)
+            
+            # отрисовка
+            rza_mtz = acad.model.AddSpline(IEC, startTan, endTan)
+            rza_mtz.color = 94
+            rza_mtz.Lineweight = 100
 
-            except:
-                Ir = [((TMS * self.K/10000)+1) ** (1/self.alpha), 1.01, 1.05, 1.1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5,
-                      960/Imtz]
-                IEC = aDouble()
-                startTan = aDouble(0, 0, 0)
-                endTan = aDouble(0, 0, 0)
-                a = (0 - 360) / (math.log(1) - math.log(24000))
-                b = 360 - a * math.log(24000)
-                c = (0 - 180) / (math.log(0.01) - math.log(10000))
-                d = 180 - c * math.log(10000)
-                for I in Ir:
-                    if I <= 960//Imtz:
-                        It = Imtz * I
-                        IEC.append(It * 25 * 0.015)
-                        Tt = TMS * self.K / ((I ** self.alpha) - 1)
-                        IEC.append(c * math.log(Tt) + d)
-                        IEC.append(0)
+            rza_to = acad.model.AddPolyLine(TO)
+            rza_to.color = 94
+            rza_to.Lineweight = 100
+            
+        elif self.K and self.alpha and self.ui.Imtz_edit.text() and self.ui.TMS_edit.text() and not self.ui.Ito_edit.text() and not self.ui.Tto_edit.text() and not self.I0to_edit.text():
+            Ir = [((TMS * self.K/10000)+1) ** (1/self.alpha), 1.01, 1.05, 1.1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 960/Imtz]
+            IEC = aDouble()
+            startTan = aDouble(0, 0, 0)
+            endTan = aDouble(0, 0, 0)
+            a = (0 - 360) / (math.log(1) - math.log(24000))
+            b = 360 - a * math.log(24000)
+            c = (0 - 180) / (math.log(0.01) - math.log(10000))
+            d = 180 - c * math.log(10000)
+            for I in Ir:
+                if I <= 960//Imtz:
+                    It = Imtz * I
+                    IEC.append(It * 25 * 0.015)
+                    Tt = TMS * self.K / ((I ** self.alpha) - 1)
+                    IEC.append(c * math.log(Tt) + d)
+                    IEC.append(0)
 
-                rza_mtz = acad.model.AddSpline(IEC, startTan, endTan)
-                rza_mtz.color = 94
-                rza_mtz.Lineweight = 100
+            rza_mtz = acad.model.AddSpline(IEC, startTan, endTan)
+            rza_mtz.color = 94
+            rza_mtz.Lineweight = 100
 
         else:
             pass
